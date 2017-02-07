@@ -1,0 +1,796 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="AvoidCrash简介
+这个框架利用runtime技术对一些常用并且容易导致崩溃的方法进行处理，可以有效的防止崩溃。
+并且打印出具体是哪个方法会导致崩溃，让你快速定位导致崩溃的代码。
+你可以获取到原本导致崩溃的主要信息&amp;lt;由于这个框架的存在，并不会崩溃&amp;gt;，进行相应的处理。比如：
+你可以将这些崩溃信息发送到自己服务器。
+你若集成了第三方崩溃日志收集的SDK,比如你用了腾讯的Bugly,你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三方框架NullSave和AvoidCrash的比较">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/iOS_NullSaveAndAvoilCrash/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="AvoidCrash简介
+这个框架利用runtime技术对一些常用并且容易导致崩溃的方法进行处理，可以有效的防止崩溃。
+并且打印出具体是哪个方法会导致崩溃，让你快速定位导致崩溃的代码。
+你可以获取到原本导致崩溃的主要信息&amp;lt;由于这个框架的存在，并不会崩溃&amp;gt;，进行相应的处理。比如：
+你可以将这些崩溃信息发送到自己服务器。
+你若集成了第三方崩溃日志收集的SDK,比如你用了腾讯的Bugly,你">
+<meta property="og:updated_time" content="2016-12-14T12:26:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第三方框架NullSave和AvoidCrash的比较">
+<meta name="twitter:description" content="AvoidCrash简介
+这个框架利用runtime技术对一些常用并且容易导致崩溃的方法进行处理，可以有效的防止崩溃。
+并且打印出具体是哪个方法会导致崩溃，让你快速定位导致崩溃的代码。
+你可以获取到原本导致崩溃的主要信息&amp;lt;由于这个框架的存在，并不会崩溃&amp;gt;，进行相应的处理。比如：
+你可以将这些崩溃信息发送到自己服务器。
+你若集成了第三方崩溃日志收集的SDK,比如你用了腾讯的Bugly,你">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/14/iOS_NullSaveAndAvoilCrash/"/>
+
+
+
+
+
+  <title> 第三方框架NullSave和AvoidCrash的比较 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/iOS_NullSaveAndAvoilCrash/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Doe">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                第三方框架NullSave和AvoidCrash的比较
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T00:00:00+08:00">
+                2016-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="AvoidCrash简介"><a href="#AvoidCrash简介" class="headerlink" title="AvoidCrash简介"></a>AvoidCrash简介</h1><ul>
+<li>这个框架利用runtime技术对一些常用并且容易导致崩溃的方法进行处理，可以有效的防止崩溃。</li>
+<li>并且打印出具体是哪个方法会导致崩溃，让你快速定位导致崩溃的代码。</li>
+<li>你可以获取到原本导致崩溃的主要信息&lt;由于这个框架的存在，并不会崩溃&gt;，进行相应的处理。比如：<ul>
+<li>你可以将这些崩溃信息发送到自己服务器。</li>
+<li>你若集成了第三方崩溃日志收集的SDK,比如你用了腾讯的Bugly,你可以上报自定义异常。</li>
+</ul>
+</li>
+<li>或许你会问有JSPatch就可以下发补丁来修复bug,为什么要用AvoidCrash？我只能说，AvoidCrash可以有效防止部分常见崩溃，JSPatch可以快速修复bug.推荐将两者都集成到项目中去。</li>
+</ul>
+<hr>
+<p>##使用方法</p>
+<ul>
+<li>在AppDelegate的didFinishLaunchingWithOptions方法中添加如下代码，让AvoidCrash生效</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//这句代码会让AvoidCrash生效，若没有如下代码，则AvoidCrash就不起作用</div><div class="line">[AvoidCrash becomeEffective]; </div><div class="line">   /*</div><div class="line">    *  [AvoidCrash becomeEffective]，是全局生效。若你只需要部分生效，你可以单个进行处理，比如:</div><div class="line">    *  [NSArray avoidCrashExchangeMethod];</div><div class="line">    *  [NSMutableArray avoidCrashExchangeMethod];</div><div class="line">    *  .................</div><div class="line">    *  .................</div><div class="line">    */</div></pre></td></tr></table></figure>
+<ul>
+<li>若你想要获取崩溃日志的所有详细信息，只需添加通知的监听，监听的通知名为:AvoidCrashNotification</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div><div class="line">    </div><div class="line">    [AvoidCrash becomeEffective];</div><div class="line">    </div><div class="line">    //监听通知:AvoidCrashNotification, 获取AvoidCrash捕获的崩溃日志的详细信息</div><div class="line">    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dealwithCrashMessage:) name:AvoidCrashNotification object:nil];</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)dealwithCrashMessage:(NSNotification *)note &#123;</div><div class="line">    //注意:所有的信息都在userInfo中</div><div class="line">    //你可以在这里收集相应的崩溃信息进行相应的处理(比如传到自己服务器)</div><div class="line">    NSLog(@&quot;%@&quot;,note.userInfo);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="目前可以防止崩溃的方法有"><a href="#目前可以防止崩溃的方法有" class="headerlink" title="目前可以防止崩溃的方法有"></a>目前可以防止崩溃的方法有</h1><hr>
+<ul>
+<li><p>NSArray</p>
+<ul>
+<li><code>1. NSArray的快速创建方式 NSArray *array = @[@&quot;chenfanfang&quot;, @&quot;AvoidCrash&quot;];  //这种创建方式其实调用的是2中的方法</code></li>
+<li><p><code>2. +(instancetype)arrayWithObjects:(const id  _Nonnull __unsafe_unretained *)objects count:(NSUInteger)cnt</code></p>
+</li>
+<li><p><code>3. 通过下标获取元素 array[100]、[array objectAtIndex:100]</code></p>
+<ul>
+<li><code>- (id)objectAtIndex:(NSUInteger)index</code></li>
+</ul>
+</li>
+<li><p><code>4. - (NSArray *)objectsAtIndexes:(NSIndexSet *)indexes</code></p>
+</li>
+<li><code>5. - (void)getObjects:(__unsafe_unretained id  _Nonnull *)objects range:(NSRange)range</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>NSMutableArray <ul>
+<li><code>1. 通过下标获取元素 array[100]、[array objectAtIndex:100]</code><ul>
+<li><code>- (id)objectAtIndex:(NSUInteger)index</code></li>
+</ul>
+</li>
+<li><code>2. - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx</code></li>
+<li><code>3. - (void)removeObjectAtIndex:(NSUInteger)index</code></li>
+<li><code>4. - (void)insertObject:(id)anObject atIndex:(NSUInteger)index</code></li>
+<li><code>5. - (NSArray *)objectsAtIndexes:(NSIndexSet *)indexes</code></li>
+<li><code>6. - (void)getObjects:(__unsafe_unretained id  _Nonnull *)objects range:(NSRange)range</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>NSDictionary<ul>
+<li><code>1. NSDictionary的快速创建方式 NSDictionary *dict = @{@&quot;frameWork&quot; : @&quot;AvoidCrash&quot;}; //这种创建方式其实调用的是2中的方法</code></li>
+<li><code>2. +(instancetype)dictionaryWithObjects:(const id  _Nonnull __unsafe_unretained *)objects forKeys:(const id&lt;NSCopying&gt;  _Nonnull __unsafe_unretained *)keys count:(NSUInteger)cnt</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>NSMutableDictionary<ul>
+<li><code>1. - (void)setObject:(id)anObject forKey:(id&lt;NSCopying&gt;)aKey</code></li>
+<li><code>2. - (void)removeObjectForKey:(id)aKey</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>NSString<ul>
+<li><code>1. - (unichar)characterAtIndex:(NSUInteger)index</code></li>
+<li><code>2. - (NSString *)substringFromIndex:(NSUInteger)from</code></li>
+<li><code>3. - (NSString *)substringToIndex:(NSUInteger)to {</code></li>
+<li><code>4. - (NSString *)substringWithRange:(NSRange)range {</code></li>
+<li><code>5. - (NSString *)stringByReplacingOccurrencesOfString:(NSString *)target withString:(NSString *)replacement</code></li>
+<li><code>6. - (NSString *)stringByReplacingOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(NSStringCompareOptions)options range:(NSRange)searchRange</code></li>
+<li><code>7. - (NSString *)stringByReplacingCharactersInRange:(NSRange)range withString:(NSString *)replacement</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>NSMutableString<ul>
+<li><code>1. 由于NSMutableString是继承于NSString,所以这里和NSString有些同样的方法就不重复写了</code></li>
+<li><code>2. - (void)replaceCharactersInRange:(NSRange)range withString:(NSString *)aString</code></li>
+<li><code>3. - (void)insertString:(NSString *)aString atIndex:(NSUInteger)loc</code></li>
+<li><code>4. - (void)deleteCharactersInRange:(NSRange)range</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>KVC<ul>
+<li><code>1.- (void)setValue:(id)value forKey:(NSString *)key</code></li>
+<li><code>2.- (void)setValue:(id)value forKeyPath:(NSString *)keyPath</code></li>
+<li><code>3.- (void)setValue:(id)value forUndefinedKey:(NSString *)key //这个方法一般用来重写，不会主动调用</code></li>
+<li><code>4.- (void)setValuesForKeysWithDictionary:(NSDictionary&lt;NSString *,id&gt; *)keyedValues</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>NSAttributedString<ul>
+<li><code>1.- (instancetype)initWithString:(NSString *)str</code></li>
+<li><code>2.- (instancetype)initWithAttributedString:(NSAttributedString *)attrStr</code></li>
+<li><code>3.- (instancetype)initWithString:(NSString *)str attributes:(NSDictionary&lt;NSString *,id&gt; *)attrs</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>NSMutableAttributedString<ul>
+<li><code>1.- (instancetype)initWithString:(NSString *)str</code></li>
+<li><code>2.- (instancetype)initWithString:(NSString *)str attributes:(NSDictionary&lt;NSString *,id&gt; *)attrs</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="NullSave简介"><a href="#NullSave简介" class="headerlink" title="NullSave简介"></a>NullSave简介</h1><ul>
+<li><p>这个框架通过将Null控制替换为nil，而nil是安全的，可以向nil对象发送任何message而不会奔溃。可以有效的防止崩溃。</p>
+</li>
+<li><p>NullSafe 是一个 Category，使用起来非常方便，只要加入到了工程中就可以了。</p>
+</li>
+<li><p>NullSafe在ARC和非ARC中都能使用</p>
+</li>
+</ul>
+<p>##使用</p>
+<p>把项目拖入项目即可。</p>
+<p>后面持续更新</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/14/iOS_collapse/" rel="next" title="iOS程序崩溃的几种可能的原因">
+                <i class="fa fa-chevron-left"></i> iOS程序崩溃的几种可能的原因
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/15/swift_enum/" rel="prev" title="swift 枚举">
+                swift 枚举 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AvoidCrash简介"><span class="nav-number">1.</span> <span class="nav-text">AvoidCrash简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前可以防止崩溃的方法有"><span class="nav-number">2.</span> <span class="nav-text">目前可以防止崩溃的方法有</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NullSave简介"><span class="nav-number">3.</span> <span class="nav-text">NullSave简介</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

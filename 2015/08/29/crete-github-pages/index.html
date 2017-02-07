@@ -1,0 +1,749 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="关于github的pagesgithub pages 是用于用户的个人主页或者项目的主页。我们可以利用他来搭建自己的博客。
+原因：
+
+搭建简单且免费。
+可以绑定域名。
+不用管理且没有广告。
+可以自由发挥的平台。
+
+不过最近网络上发起了关于使用pages搭建博客是否道德的问题？
+我觉得搭建博客就是用于个人主页的展示，且把一些自己认为值得分享的东西分享给大家。我觉得这样做是符合github pages">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用github创建自己的博客">
+<meta property="og:url" content="http://yoursite.com/2015/08/29/crete-github-pages/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于github的pagesgithub pages 是用于用户的个人主页或者项目的主页。我们可以利用他来搭建自己的博客。
+原因：
+
+搭建简单且免费。
+可以绑定域名。
+不用管理且没有广告。
+可以自由发挥的平台。
+
+不过最近网络上发起了关于使用pages搭建博客是否道德的问题？
+我觉得搭建博客就是用于个人主页的展示，且把一些自己认为值得分享的东西分享给大家。我觉得这样做是符合github pages">
+<meta property="og:image" content="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/create_repositories.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/edit_info.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/sel_settings.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/cteate_pages.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/success.png">
+<meta property="og:updated_time" content="2016-12-14T09:48:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用github创建自己的博客">
+<meta name="twitter:description" content="关于github的pagesgithub pages 是用于用户的个人主页或者项目的主页。我们可以利用他来搭建自己的博客。
+原因：
+
+搭建简单且免费。
+可以绑定域名。
+不用管理且没有广告。
+可以自由发挥的平台。
+
+不过最近网络上发起了关于使用pages搭建博客是否道德的问题？
+我觉得搭建博客就是用于个人主页的展示，且把一些自己认为值得分享的东西分享给大家。我觉得这样做是符合github pages">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/create_repositories.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/08/29/crete-github-pages/"/>
+
+
+
+
+
+  <title> 利用github创建自己的博客 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/29/crete-github-pages/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Doe">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用github创建自己的博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-08-29T00:00:00+08:00">
+                2015-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="关于github的pages"><a href="#关于github的pages" class="headerlink" title="关于github的pages"></a>关于github的pages</h2><p>github pages 是用于用户的个人主页或者项目的主页。<br>我们可以利用他来搭建自己的博客。</p>
+<p>原因：</p>
+<ul>
+<li>搭建简单且免费。</li>
+<li>可以绑定域名。</li>
+<li>不用管理且没有广告。</li>
+<li>可以自由发挥的平台。</li>
+</ul>
+<p>不过最近网络上发起了关于使用pages搭建博客是否道德的问题？</p>
+<p>我觉得搭建博客就是用于个人主页的展示，且把一些自己认为值得分享的东西分享给大家。我觉得这样做是符合github pages的目标和要求的。</p>
+<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><p>为了大家能更好的建立自己的博客，我做的是不需要在git上敲指令。我在这里主要是把创建博客的步骤浅说一下，希望对新手来说有一定的帮助。</p>
+<ul>
+<li>简单创建博客<br>首先进入主页</li>
+</ul>
+<pre><code>填写仓库名字
+Description可以不写
+直接点击create repository
+创建的时候有一些标记介绍,后面我会对这块单独分享出来
+
+
+
+创建仓库
+</code></pre><figure><br>   <img src="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/create_repositories.png"><br>   <figcaption></figcaption><br></figure>
+
+
+
+<pre><code>填写仓库信息
+</code></pre><figure><br>   <img src="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/edit_info.png"><br>   <figcaption></figcaption><br></figure>
+
+
+
+<pre><code>点击设置
+</code></pre><figure><br>   <img src="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/sel_settings.png"><br>   <figcaption></figcaption><br></figure>
+
+
+
+<pre><code>注意
+- Default branch这个是master
+- 而创建的pages是只能在gh-pages下才可以创建博客的
+- 进入后点击Contlnue to layouts
+此处只是提醒，直接点击 Launch automatlc page generator
+</code></pre><figure><br>   <img src="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/cteate_pages.png"><br>   <figcaption></figcaption><br></figure>
+
+
+<pre><code>Publlsh page
+</code></pre><figure><br>   <img src="https://raw.githubusercontent.com/wfiskz/blog/gh-pages/res/success.png"><br>   <figcaption></figcaption><br></figure>
+
+<p>这样你就创建好了你的简易版博客，<a href="http://username.github.io/blog来访问你博客。第一次需要等待10分钟左右就可以查看了。" target="_blank" rel="external">http://username.github.io/blog来访问你博客。第一次需要等待10分钟左右就可以查看了。</a></p>
+<p>username就是你的用户名。</p>
+<p>blog是你的仓库名称。</p>
+<p>在做下面借助第三方库做博客之前，我先介绍几点我们需要修改的东西，一般你fork别人的项目的时候就会看到作者提示要修改的哪些方面。</p>
+<p>1.CNAME 记录域名信息。（如何绑定域名这个请自行百度）  </p>
+<p>2.README.MD 这个直接就是你fork之后，你看到项目下的那些项目描述或者帮助描述。  </p>
+<p>3._config.yml 这个是我们fork最关心的东西，我们大部分修改的就是这个文件。</p>
+<p><em>ps 上面这些只是为了让你更加熟悉这个流程，并非必须的，你如果熟悉这个流程的话并且想做第二步的话，你可以删除你创建的仓库，把你fork的仓库名称修改为你想要的。</em></p>
+<ul>
+<li>利用别人提供的主题来创建博客  </li>
+</ul>
+<p>推荐一篇介绍github + Jekyll的文章，里面详细介绍了Jekyll的工作流程<a href="http://blog.csdn.net/on_1y/article/details/19259435" target="_blank" rel="external">http://blog.csdn.net/on_1y/article/details/19259435</a></p>
+<p>这些是一些<a href="https://github.com/jekyll/jekyll/wiki/Sites" target="_blank" rel="external">总结的开源库</a>，选择一个自己喜欢的，fork一下。</p>
+<p>现在我们做一些前期工作，前面也说到了就是分支，你的分支一定要在<em>gh-page</em>(不是下划线)下，如果不是自己创建的话一般都是有这个分支的。如果没有的话，就自己创建这个分支。一般还要修改_config.xml下的这个用户名等信息，这个可以根据fork后的项目提示去修改。</p>
+<p>fork之后10分钟之后我们就可以根据username.github.io/博客名字来访问，这时候有可能显示界面是很乱的，我们需要查看下css文件是否可以访问，如果可以访问，修改CNAME后，等上一会就能展示出一个完整的界面。如果不能的话，那我们需要找下目录结构是否正确了，一般都是在_config.yml目录下修改目录的。这个要仔细查看，我这有个小技巧，你访问你的css的时候查看下源码，在源码里进行分析。</p>
+<p>#####细节优化</p>
+<p>评论：现在国内有一些评论服务，比如多说评论服务。</p>
+<p>访问速度：国内的访问博客的速度直接影响了我们关于博客的完美体验，我也在学习这个，希望有这方面比较熟悉的可以帮助到我。</p>
+<p>访问连接：访问连接会暴露很多信息，这个也是需要优化的。</p>
+<p>其他：一些细节的调整，也是必须的。我会继续来更新这个篇博客。</p>
+<ul>
+<li>自己实现</li>
+</ul>
+<pre><code>自己实现的话，要求比较高。可以参照其他博客来获取更多的资料。
+</code></pre><p>###<em>期待我们一起进步。</em></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/27/bookplan/" rel="next" title="2015读书计划">
+                <i class="fa fa-chevron-left"></i> 2015读书计划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/25/android-studio-live-templates/" rel="prev" title="Android Studio Live Templates">
+                Android Studio Live Templates <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于github的pages"><span class="nav-number">1.</span> <span class="nav-text">关于github的pages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建博客"><span class="nav-number">2.</span> <span class="nav-text">创建博客</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
