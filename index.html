@@ -325,28 +325,23 @@
       
         
           
-            <p>#2016年年终总结</p>
-<p>##收获积累篇</p>
+            <p><br>收获积累篇<br></p>
 <p>###一、    项目<br>团队项目完成有13个。主要负责项目研发、新需求的修改、新技术调研和bug的修改。</p>
 <p>###二、 技术。</p>
-<p>####1/ 封装。<br>(1)          TextColorFilterTool     </p>
-<p>####2/ 框架类调研：<br>(2)          数据库框架SQLite/Core Data/FMDB/YapDatabase/realm。   </p>
+<p>####1/ 封装。</p>
+<ol>
+<li>TextColorFilterTool </li>
+</ol>
+<p>####2/ 框架类调研：</p>
+<ol>
+<li>数据库框架SQLite/Core Data/FMDB/YapDatabase/realm。   </li>
+</ol>
 <p>####3/ 技术点<br>(1)          闹钟。<br>(2)          iOS国际化。<br>(3)          iOS在杀死后启动应用。<br>(4)          iOS界面的适配。<br>(5)          pixels点阵效果。<br>(6)          调研如何从一个应用跳转到另外一个应用。<br>(7)          调研实时录音。<br>(8)          iOS Plus 的适配处理。<br>(9)          字体与界面UI 适配规范。<br>(10)         国际化规范。<br>(11)         程序异常崩溃的处理。<br>(12)         环信通讯调研。        </p>
 <p>###4/ 调研点<br>(1)          蓝牙 HFP 调研。<br>(2)          iOS10跳转到设置界面。<br>(3)          苹果通知服务ANCS。<br>(4)          微信语音调研。<br>(5)          蓝牙设备按键控制语音识别并自动播放歌曲。<br>(6)          ANCS 技术调研<br>(7)          HomeKit 调研</p>
 <p>###5/ 学习<br>(1)           学习swift。<br>(2)           学习react native。<br>(3)           新增了10篇博客。</p>
 <p>##新年展望篇</p>
-<p>###1/ 技术</p>
-<ol>
-<li>能够独立开发项目2个。        </li>
-<li>swift新技术学习，在6月份之前学完，10月份写一个音乐播放的demo。        </li>
-<li>Blog新增10篇高质量博客。        </li>
-<li>GitHub 开源 3个项目，每个项目收获  30 个 Star。        </li>
-<li>使用起来StackOverflow 新增 50 reputation。        </li>
-<li>Zhihu 新增 50 个赞        </li>
-<li>SegmentFault 新增 200 声望。        </li>
-<li>熟悉10个新框架并运用到项目中来。        </li>
-<li>关注新技术论坛和互联网开阔视野，并在2017年参加周六分享30次以上并有分享，并通过分享提高语言表达能力。<br>###2/ 个人<br>1.保持跑步和打羽毛球，体重减至130斤。<br>2.2017年加班少于100个小时。<br>3.提高对生活的追求，每年旅游两次。<br>4.2017年找到女朋友。<br>5.提高英语能力，希望2017年报个英语班进行学习。<br>6.提高生活质量，周末的时候能参加一些当时举办的活动。        </li>
-</ol>
+<p>###1/ 技术<br>(1)                 能够独立开发项目2个。<br>(2)                 swift新技术学习，在6月份之前学完，10月份写一个音乐播放的demo。<br>(3)                 Blog新增10篇高质量博客。<br>(4)                 GitHub 开源 3个项目，每个项目收获  30 个 Star。<br>(5)                使用起来StackOverflow 新增 50 reputation。<br>(6)                 Zhihu 新增 50 个赞<br>(7)                SegmentFault 新增 200 声望。    <font color="red">[31–231]完成度%5</font><br>(8)                   熟悉10个新框架并运用到项目中来。<br>(9)                 关注新技术论坛和互联网开阔视野，并在2017年参加周六分享30次以上并有分享，并通过分享提高语言表达能力。         </p>
+<p>###2/ 个人<br>(1)                保持跑步和打羽毛球，体重减至130斤。（目前75kg）<br>(2)                2017年加班少于100个小时。<br>(3)                提高对生活的追求，每年旅游两次。<br>(4)                2017年找到女朋友。<font color="red">[完成度：0%]</font><br>(5)                提高英语能力，希望2017年报个英语班进行学习。<br>(6)                提高生活质量，周末的时候能参加一些当时举办的活动。<br>(7)                提高生活质量，周末的时候能参加一些当时举办的活动。        </p>
 
           
         
@@ -654,6 +649,129 @@
 <p>要操作具有递归性质的数据结构，使用递归函数是一种直截了当的方式。例如，下面是一个对算术表达式求值的函数：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">evaluate</span><span class="params">(<span class="number">_</span> expression: ArithmeticExpression)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">switch</span> expression &#123;</div><div class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .number(value):</div><div class="line">        <span class="keyword">return</span> value</div><div class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .addition(<span class="keyword">left</span>, <span class="keyword">right</span>):</div><div class="line">        <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) + evaluate(<span class="keyword">right</span>)</div><div class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .multiplication(<span class="keyword">left</span>, <span class="keyword">right</span>):</div><div class="line">        <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) * evaluate(<span class="keyword">right</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>print(evaluate(product))<br>// 打印 “18”<br>该函数如果遇到纯数字，就直接返回该数字的值。如果遇到的是加法或乘法运算，则分别计算左边表达式和右边表达式的值，然后相加或相乘。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/iOS_Null_Pointer/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Doe">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/14/iOS_Null_Pointer/" itemprop="url">
+                  iOS空指针的处理方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T00:00:00+08:00">
+                2016-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 空指针异常。不管是指针指向空，或者指针的内容为空，都会出现应用闪退。</p>
+<p> 第一种指针指向空，一般是没有创建，或者没有初始化造成的结果。</p>
+<p> 第二种是创建了或者初始化了对象，但赋值为空。<br>第一种解决方式最好的方法是判断是否为nil。这种一般是指对象没有被创建或者没有初始化造成的应用闪退。</p>
 
           
         
@@ -1066,129 +1184,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/iOS_Null_Pointer/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="John Doe">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Hexo">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/14/iOS_Null_Pointer/" itemprop="url">
-                  iOS空指针的处理方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T00:00:00+08:00">
-                2016-12-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> 空指针异常。不管是指针指向空，或者指针的内容为空，都会出现应用闪退。</p>
-<p> 第一种指针指向空，一般是没有创建，或者没有初始化造成的结果。</p>
-<p> 第二种是创建了或者初始化了对象，但赋值为空。<br>第一种解决方式最好的方法是判断是否为nil。这种一般是指对象没有被创建或者没有初始化造成的应用闪退。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/iOS-screen-adaption/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1277,130 +1272,6 @@
 <p>####5.自定义控件<br>  关于自定义控件适配，在写自定义控件时，最好就做好处理，尽量用当前控件的大小来处理当前控件的数据处理。当前控件大小可以在外部做屏幕适配。</p>
 <p>####6.等比缩放<br>  和第二点差不多，这里是获取当前的宽度和高度，根据效果图比例来实现应用。对一些控件要求比较高。难度比一般那样实现麻烦。但可以一劳永逸。</p>
 <p>#####整体我觉得应该根据项目的复杂度做出合理安排。像复杂一些的项目，需求不确定的项目，就不要用移植性比较差方案或者控件。相反，有些项目结构简单清晰，后期需求修改不大，就可以用移植相对差，但开发效率比较高的方案。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/26/IOS10rightsmanagement/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="John Doe">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Hexo">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/26/IOS10rightsmanagement/" itemprop="url">
-                  iOS 10的权限管理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T00:00:00+08:00">
-                2016-11-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#iOS 10的权限管理</p>
-<p>##1.不添加权限app会闪退<br>  我们开发应用时，经常会用到访问相片，通讯录等，在iOS9及以前苹果对这个权限管理并不是特别严格，但在iOS10你必须添加对应的权限，否则就会闪退。<br>  错误如下：<br>  This app has crashed because it attempted to access privacy-sensitive data without a usage description.<br>The app’s Info.plist must contain an NSCameraUsageDescriptionkey with a string value explaining to the user how the app uses this data.</p>
-<p>##2.哪些需要添加权限？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">Photo Library//相册权限</div><div class="line">NSPhotoLibraryUsageDescription</div><div class="line"></div><div class="line">Camera //相机权限</div><div class="line">NSCameraUsageDescription</div><div class="line"></div><div class="line">Microphone//麦克风权限</div><div class="line">NSMicrophoneUsageDescription</div><div class="line"></div><div class="line">Location//定位权限</div><div class="line">NSLocationUsageDescription</div><div class="line"></div><div class="line">Location When In Use //前台定位权限</div><div class="line">NSLocationWhenInUseUsageDescription</div><div class="line"></div><div class="line">Location Always//后台定位权限</div><div class="line">NSLocationAlwaysUsageDescription</div><div class="line"></div><div class="line">Calendars //日历权限</div><div class="line">NSCalendarsUsageDescription</div><div class="line"></div><div class="line">Reminders //提醒事项</div><div class="line">NSRemindersUsageDescription</div><div class="line"></div><div class="line">Motion//运动与健身</div><div class="line">NSMotionUsageDescription</div><div class="line"></div><div class="line">Health Update//健康更新</div><div class="line">NSHealthUpdateUsageDescription</div><div class="line"></div><div class="line">Health Share//健康分享</div><div class="line">NSHealthShareUsageDescription</div><div class="line"></div><div class="line">Bluetooth Peripheral //蓝牙权限</div><div class="line">NSBluetoothPeripheralUsageDescription</div><div class="line"></div><div class="line">Music//媒体资料库</div><div class="line">NSAppleMusicUsageDescription</div></pre></td></tr></table></figure>
 
           
         
@@ -1677,6 +1548,130 @@
 <p>AudioSample类型其实就是UInt16类型。</p>
 <p>####布尔值<br>Swift 有一个基本的布尔（Boolean）类型，叫做Bool。布尔值指逻辑上的值，因为它们只能是真或者假。Swift 有两个布尔常量，true 和 false。<br>和Java类型。</p>
 <p>####元组</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/26/IOS10rightsmanagement/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Doe">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/26/IOS10rightsmanagement/" itemprop="url">
+                  iOS 10的权限管理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T00:00:00+08:00">
+                2016-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#iOS 10的权限管理</p>
+<p>##1.不添加权限app会闪退<br>  我们开发应用时，经常会用到访问相片，通讯录等，在iOS9及以前苹果对这个权限管理并不是特别严格，但在iOS10你必须添加对应的权限，否则就会闪退。<br>  错误如下：<br>  This app has crashed because it attempted to access privacy-sensitive data without a usage description.<br>The app’s Info.plist must contain an NSCameraUsageDescriptionkey with a string value explaining to the user how the app uses this data.</p>
+<p>##2.哪些需要添加权限？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">Photo Library//相册权限</div><div class="line">NSPhotoLibraryUsageDescription</div><div class="line"></div><div class="line">Camera //相机权限</div><div class="line">NSCameraUsageDescription</div><div class="line"></div><div class="line">Microphone//麦克风权限</div><div class="line">NSMicrophoneUsageDescription</div><div class="line"></div><div class="line">Location//定位权限</div><div class="line">NSLocationUsageDescription</div><div class="line"></div><div class="line">Location When In Use //前台定位权限</div><div class="line">NSLocationWhenInUseUsageDescription</div><div class="line"></div><div class="line">Location Always//后台定位权限</div><div class="line">NSLocationAlwaysUsageDescription</div><div class="line"></div><div class="line">Calendars //日历权限</div><div class="line">NSCalendarsUsageDescription</div><div class="line"></div><div class="line">Reminders //提醒事项</div><div class="line">NSRemindersUsageDescription</div><div class="line"></div><div class="line">Motion//运动与健身</div><div class="line">NSMotionUsageDescription</div><div class="line"></div><div class="line">Health Update//健康更新</div><div class="line">NSHealthUpdateUsageDescription</div><div class="line"></div><div class="line">Health Share//健康分享</div><div class="line">NSHealthShareUsageDescription</div><div class="line"></div><div class="line">Bluetooth Peripheral //蓝牙权限</div><div class="line">NSBluetoothPeripheralUsageDescription</div><div class="line"></div><div class="line">Music//媒体资料库</div><div class="line">NSAppleMusicUsageDescription</div></pre></td></tr></table></figure>
 
           
         
