@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,14 +96,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三方框架NullSave和AvoidCrash的比较">
 <meta property="og:url" content="http://yoursite.com/2016/12/14/iOS_NullSaveAndAvoilCrash/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="fiskz 的博客">
 <meta property="og:description" content="AvoidCrash简介
 这个框架利用runtime技术对一些常用并且容易导致崩溃的方法进行处理，可以有效的防止崩溃。
 并且打印出具体是哪个方法会导致崩溃，让你快速定位导致崩溃的代码。
 你可以获取到原本导致崩溃的主要信息&amp;lt;由于这个框架的存在，并不会崩溃&amp;gt;，进行相应的处理。比如：
 你可以将这些崩溃信息发送到自己服务器。
 你若集成了第三方崩溃日志收集的SDK,比如你用了腾讯的Bugly,你">
-<meta property="og:updated_time" content="2016-12-14T12:26:37.000Z">
+<meta property="og:updated_time" content="2017-03-03T06:22:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三方框架NullSave和AvoidCrash的比较">
 <meta name="twitter:description" content="AvoidCrash简介
@@ -125,7 +125,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -145,10 +145,10 @@
 
 
 
-  <title> 第三方框架NullSave和AvoidCrash的比较 | Hexo </title>
+  <title> 第三方框架NullSave和AvoidCrash的比较 | fiskz 的博客 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -180,7 +180,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">fiskz 的博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -209,7 +209,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -219,7 +219,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -229,7 +229,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -265,15 +265,15 @@
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/iOS_NullSaveAndAvoilCrash/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="John Doe">
+    <meta itemprop="name" content="fiskz">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="/images/avatar.gif">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Hexo">
+    <meta itemprop="name" content="fiskz 的博客">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
+      <img style="display:none;" itemprop="url image" alt="fiskz 的博客" src="">
     </span>
   </span>
 
@@ -299,7 +299,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T00:00:00+08:00">
                 2016-12-14
@@ -314,6 +314,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/14/iOS_NullSaveAndAvoilCrash/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/iOS_NullSaveAndAvoilCrash/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -348,8 +358,7 @@
 <li>或许你会问有JSPatch就可以下发补丁来修复bug,为什么要用AvoidCrash？我只能说，AvoidCrash可以有效防止部分常见崩溃，JSPatch可以快速修复bug.推荐将两者都集成到项目中去。</li>
 </ul>
 <hr>
-<p>##使用方法</p>
-<ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ul>
 <li>在AppDelegate的didFinishLaunchingWithOptions方法中添加如下代码，让AvoidCrash生效</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//这句代码会让AvoidCrash生效，若没有如下代码，则AvoidCrash就不起作用</div><div class="line">[AvoidCrash becomeEffective]; </div><div class="line">   /*</div><div class="line">    *  [AvoidCrash becomeEffective]，是全局生效。若你只需要部分生效，你可以单个进行处理，比如:</div><div class="line">    *  [NSArray avoidCrashExchangeMethod];</div><div class="line">    *  [NSMutableArray avoidCrashExchangeMethod];</div><div class="line">    *  .................</div><div class="line">    *  .................</div><div class="line">    */</div></pre></td></tr></table></figure>
@@ -465,8 +474,7 @@
 <li><p>NullSafe在ARC和非ARC中都能使用</p>
 </li>
 </ul>
-<p>##使用</p>
-<p>把项目拖入项目即可。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>把项目拖入项目即可。</p>
 <p>后面持续更新</p>
 
       
@@ -542,6 +550,10 @@
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/12/14/iOS_NullSaveAndAvoilCrash/"
+           data-title="第三方框架NullSave和AvoidCrash的比较" data-url="http://yoursite.com/2016/12/14/iOS_NullSaveAndAvoilCrash/">
+      </div>
+    
   </div>
 
 
@@ -565,10 +577,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -577,8 +589,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="fiskz" />
+          <p class="site-author-name" itemprop="name">fiskz</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
@@ -586,8 +598,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -598,7 +610,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">标签</span>
               </a>
             </div>
           
@@ -632,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AvoidCrash简介"><span class="nav-number">1.</span> <span class="nav-text">AvoidCrash简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前可以防止崩溃的方法有"><span class="nav-number">2.</span> <span class="nav-text">目前可以防止崩溃的方法有</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NullSave简介"><span class="nav-number">3.</span> <span class="nav-text">NullSave简介</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AvoidCrash简介"><span class="nav-number">1.</span> <span class="nav-text">AvoidCrash简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">1.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前可以防止崩溃的方法有"><span class="nav-number">2.</span> <span class="nav-text">目前可以防止崩溃的方法有</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NullSave简介"><span class="nav-number">3.</span> <span class="nav-text">NullSave简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.1.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -657,16 +669,16 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">fiskz</span>
 </div>
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
@@ -751,32 +763,39 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fiskzblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
-	
 
 
 
 
 
-  
 
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
